@@ -48,3 +48,7 @@ body {
   border-radius: 8px;
   font-size: 24px;
 }
+
+.enemy-div.dead {
+  background-position-x: -45px;
+}
