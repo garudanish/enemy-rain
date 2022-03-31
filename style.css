@@ -4,6 +4,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -15,6 +16,7 @@ body {
   position: relative;
   width: 800px;
   height: 600px;
+  margin-bottom: 24px;
   background-image: url(./images/bg.png);
 }
 
@@ -32,4 +34,17 @@ body {
 
 .left-face {
   background-position-x: -70px;
+}
+
+.enemy-div {
+  position: absolute;
+  width: 45px;
+  height: 54px;
+  background-image: url(./images/enemy.png);
+}
+
+.start-button {
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 24px;
 }

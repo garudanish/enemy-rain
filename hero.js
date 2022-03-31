@@ -1,30 +1,33 @@
+const bg = document.getElementById("bg");
+
 class Hero {
-  constructor() {
-    const bg = document.getElementById("bg");
-    const heroDiv = document.getElementById("hero");
+  constructor(game) {
+    this.game = game;
+    this.hero = document.createElement("div");
+    this.hero.id = "hero";
+    bg.appendChild(this.hero);
+
     this.left =
       bg.getBoundingClientRect().width * 0.5 -
-      heroDiv.getBoundingClientRect().width * 0.5;
-    heroDiv.style.left = this.left;
+      this.hero.getBoundingClientRect().width * 0.5;
+    this.hero.style.left = this.left + "px";
   }
 
   moveLeft() {
-    const heroDiv = document.getElementById("hero");
-    heroDiv.className = "left-face";
+    this.hero.className = "left-face";
     if (this.left - 10 < 0) {
       return;
     }
     this.left -= 10;
-    heroDiv.style.left = this.left + "px";
+    this.hero.style.left = this.left + "px";
   }
 
   moveRight() {
-    const heroDiv = document.getElementById("hero");
-    heroDiv.className = "right-face";
-    if (this.left + 10 > 800 - heroDiv.getBoundingClientRect().width) {
+    this.hero.className = "right-face";
+    if (this.left + 10 > 800 - this.hero.getBoundingClientRect().width) {
       return;
     }
     this.left += 10;
-    heroDiv.style.left = this.left + "px";
+    this.hero.style.left = this.left + "px";
   }
 }
