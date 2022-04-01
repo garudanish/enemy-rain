@@ -1,3 +1,5 @@
+const messageWrapper = document.querySelector(".message-wrapper");
+
 class Game {
   constructor() {
     this.hero = null;
@@ -7,6 +9,7 @@ class Game {
 
   startGame() {
     this.hero = new Hero(this);
+
     window.addEventListener("keydown", this.onKeydown);
     this.generateEnemy();
   }
@@ -34,10 +37,14 @@ class Game {
       clearInterval(enemy.moveIntervalId);
     });
     this.game = null;
+    messageWrapper.querySelector(".message").textContent = "GAME OVER!";
+    messageWrapper.querySelector(".start-button").textContent = "RESTART";
+    messageWrapper.classList.add("is-show");
   }
 }
 
 let game = null;
 document.querySelector("button").addEventListener("click", () => {
   game = new Game();
+  messageWrapper.classList.remove("is-show");
 });
